@@ -71,8 +71,6 @@ class APA(object):
             S=sr[:self.r-1]
             Y=(U*S).dot(V)
             X=ss.csr_matrix(Y)
-            for var in OmegaT:
-                X[var[0],var[1]]=self.P_Omega[var[0],var[1]]
             self.RMSE.append(np.linalg.norm(np.subtract(M, self.X), ord='fro') / np.linalg.norm(
               self.M, ord='fro'))
             i+=1
